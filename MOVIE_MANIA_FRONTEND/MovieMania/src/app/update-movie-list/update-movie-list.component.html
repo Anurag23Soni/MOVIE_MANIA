@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row addMovie">
+        <div>
+          <h1 class="list-group"> <span class="list-group-item active">Add New Movie</span></h1>
+            <form [formGroup]="movieForm" (keyup.enter)="updateMovieList()">
+                <div class="form-group">
+                    <label for="movieName">Movie Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="movieName" placeholder="Enter Movie Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="movieUrl">Movie Picture URL</label>
+                    <input type="text"  formControlName="url" class="form-control" id="movieUrl" placeholder="Enter Movie Picture URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Movie Location</label>
+                    <input type="text"  formControlName="location" class="form-control" id="location" placeholder="Enter Movie Location" required>
+                </div>
+                <div class="form-group">
+                    <label for="movieDate">Movie Date</label>
+                    <input type="text"  formControlName="date" class="form-control" id="movieDate" placeholder="Enter Movie Date" required>
+                </div>
+
+                <button type="submit" [disabled]="!movieForm.valid" (keyup.enter)="updateMovieList()" (click)="updateMovieList()" class="btn btn-primary">Add</button>
+                <button type="submit" (click)="backToHome()" class="btn btn-primary backButton">Home Page</button>
+            </form>
+        </div>
+    </div>
+    <div class="row mobieLists">
+        <ul class="list-group">
+            <div *ngFor="let name of movieList; let i=index">
+            <li *ngIf="i == 0" class="list-group-item active">Available Movie List</li>
+            <li class="list-group-item">{{name}}<button type="button" (click)="deleteMovie(i)" class="btn btn-danger deleteButton">Delete</button></li>
+            </div>
+          </ul>
+    </div>
+</div>

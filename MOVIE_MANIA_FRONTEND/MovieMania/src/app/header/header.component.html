@@ -1,0 +1,26 @@
+<div id="wrapper" class="animate">
+  <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><span class="fa fa-home"></span></a>
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-md-auto d-md-flex">
+        <li class="nav-item">
+          <select class="btn btn-danger dropdown-toggle" (change)="updateLocationEvent($event)">
+            <option *ngFor="let location of locationList;let i=index" [value]="location" class="dropdown-item"
+              (click)="updateLocationEvent(location)">{{location}}</option>
+          </select>
+        </li>
+        <li class="nav-item">
+          <select class="btn btn-danger dropdown-toggle" (change)="updateLanguageEvent($event)">
+            <option *ngFor="let Language of LanguageList;let i=index" [value]="Language" class="dropdown-item"
+              (click)="updateLocationEvent(Language)">{{Language}}</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
